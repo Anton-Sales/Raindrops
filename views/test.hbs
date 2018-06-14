@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EDA Phase 1 Express Boilerplate</title>
+    <title>TEST</title>
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
     <script>
-      var click = 0
+      var id = 0
       function test(){
-        click++
+        id++
          $.ajax({
           url:'/test',
           type:'post',
-          data:{name: 'Woohoo', click: click},
-          success:function(){
-              
+          data:{name: 'I want a Raindrop', id: id},
+          success:function(res){
+              console.log(res)
         }
     });
       }
