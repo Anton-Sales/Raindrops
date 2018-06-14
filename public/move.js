@@ -7,7 +7,6 @@ function getRainDrop() {
         data:{name: 'raindrop'},
         success:function(res){
             rainDrops.push(res)
-            console.log(res)
       }
     })
 }

@@ -6,12 +6,13 @@ var rainDrops = [
 ///////////////////////////////////////////////////////////////////
 
 
-
 window.onload = function () {
-  // canvy = new fabric.Canvas('canvas')
   canvy = document.getElementById('canvas')
   canvyContext = canvy.getContext('2d')
   start()
+  setInterval(() => {
+    getRainDrop()
+  }, 1000)
 }
 
 function start() {
@@ -19,7 +20,7 @@ function start() {
     clearCanvas()
     for (var i = 0; i < rainDrops.length; i++) {
       drawRect(rainDrops[i])
-      rainDrops[i].top++
+      rainDrops[i].top++ // until move code
     }
   }, 1000/30)
 }
