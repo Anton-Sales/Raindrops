@@ -11,9 +11,9 @@
       function test(){
         id++
          $.ajax({
-          url:'/test',
+          url:'/api',
           type:'post',
-          data:{name: 'I want a Raindrop', id: id},
+          data:{name: 'raindrop', id: id},
           success:function(res){
               console.log(res)
         }

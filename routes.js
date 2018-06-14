@@ -1,4 +1,5 @@
 const express = require('express')
+const functions = require('./functions')
 
 const db = require('./db')
 
@@ -12,9 +13,9 @@ router.get('/test', (req, res) => {
   res.render('test')  
 })
 
-router.post('/test', (req, res) => {
-  console.log(req.body)
-  let obj = {name: 'Here is a raindrop', id: req.body.id}
+router.post('/api', (req, res) => {
+  let name = req.body.name 
+  let obj = functions.proccessRequest(name)
   res.json(obj)
 })
 
