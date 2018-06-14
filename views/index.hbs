@@ -2,12 +2,28 @@
 <html>
   <head>
     <title>EDA Phase 1 Express Boilerplate</title>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+    <script>
+      var click = 0
+      function test(){
+        click++
+         $.ajax({
+          url:'/test',
+          type:'post',
+          data:{name: 'Woohoo', click: click},
+          success:function(){
+              
+        }
+    });
+      }
+    </script>
   </head>
   <body>
-    <ul>
-    {{#each users}}
-      <li>{{name}} ({{email}})</li>
-    {{/each}}
-    </ul>
+   <marquee>TEST</marquee>
+   <br>
+   <div style="width: 50px; border: 1px solid black;" onclick="test()">AA</div>
   </body>
 </html>
