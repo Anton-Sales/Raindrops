@@ -9,7 +9,7 @@ var rainDrops = [
 window.onload = function () {
   canvy = document.getElementById('canvas')
   canvyContext = canvy.getContext('2d')
-  var button = document.getElementById('btn')
+  var button = document.getElementById('rain')
   button.addEventListener("click", (evt) => {
     console.log('clicked')
     startRainDrop()
