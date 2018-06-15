@@ -57,8 +57,8 @@ function makeBall() {
          left: 30,
          top: top,
          fill: colors[color],
-         width: 30,
-         height: 30,
+         width: 20,
+         height: 20,
          angle: 0,
          leftMove: Number(ballTypes[type].left_move),
          topMove:  Number(ballTypes[type].top_move)

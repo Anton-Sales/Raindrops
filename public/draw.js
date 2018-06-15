@@ -5,6 +5,7 @@ var color;
 var playing = false;
 var rainDrops = [];
 var balls = [];
+var evilMode = false;
 ///////////////////////////////////////////////////////////////////
 
 
@@ -28,10 +29,17 @@ window.onload = function () {
 
   var moodButton = document.getElementById('mood')
   moodButton.addEventListener("click", (evt) => {
-    getColor()
-      .then((newColor) => {
-        color = newColor;
-      })
+    getColor(newColor => {
+      color = newColor;
+    })
+  })
+
+  var evilButton = document.getElementById('evil')
+  evilButton.addEventListener("click", (evt) => {
+    console.log('evil')
+    evilMode = !evilMode
+    canvy.classList.toggle('evil')
+    $('body').toggleClass('evilbody')
   })
 
   var ballButton = document.getElementById('balls')
@@ -67,17 +75,19 @@ window.onload = function () {
 
 function start() {
   setInterval(()  => {
-    clearCanvas()
-    if (color) drawBackground()
+    if (!evilMode) clearCanvas()
+    if (!evilMode && color) drawBackground()
+
     drawBalls()
     drawRaindrops()
   }, 1000/30)
 }
 
 function clearCanvas () {
-  drawRect({
-    left: 0, top: 0, fill: 'white', width: 800, height: 800
-  })
+  // drawRect({
+  //   left: 0, top: 0, fill: 'white', width: 800, height: 800
+  // })
+  canvyContext.clearRect(0, 0, 800, 800)
 }
 
 function drawBackground () {
