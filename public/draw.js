@@ -49,9 +49,8 @@ window.onload = function () {
 function start() {
   setInterval(()  => {
     clearCanvas()
-    for (var i = 0; i < rainDrops.length; i++) {
-      drawRect(rainDrops[i])
-    }
+    // drawBackground()
+    drawRaindrops()
   }, 1000/30)
 }
 
@@ -59,6 +58,12 @@ function clearCanvas () {
   drawRect({
     left: 0, top: 0, fill: 'white', width: 800, height: 800
   })
+}
+
+function drawRaindrops () {
+  for (var i = 0; i < rainDrops.length; i++) {
+    drawRect(rainDrops[i])
+  }
 }
 
 function drawRect (rect) {
