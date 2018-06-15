@@ -18,14 +18,14 @@ function getColors(){
 
 function getRaindropTypes(){
     db.getTypeVisual('raindrop').then(data => {
-        raindropTypes = data          
-    })      
+        raindropTypes = data
+    })
 }
 
 function getBallTypes(){
     db.getTypeVisual('ball').then(data => {
-        ballTypes = data          
-    })      
+        ballTypes = data
+    })
 }
 
 
@@ -33,7 +33,7 @@ function getBallTypes(){
 
 function makeRaindrop() {
    let color = Math.floor(Math.random()*colors.length)
-   let left = Math.round(Math.random()*800)   
+   let left = Math.round(Math.random()*800)
    let type = Math.floor(Math.random()*raindropTypes.length)
     let raindrop = {
         left: left,
@@ -44,17 +44,17 @@ function makeRaindrop() {
         angle: 0,
         leftMove: 0,
         topMove:  Number(raindropTypes[type].top_move)
-    }    
+    }
     // makeEvent(color+1, raindropTypes[type].id, 0, left)
     return raindrop
 }
 
 function makeBall() {
     let color = Math.floor(Math.random()*colors.length)
-    let top = Math.round(Math.random()*800)    
+    let top = Math.round(Math.random()*800)
     let type = Math.floor(Math.random()*ballTypes.length)
     let ball = {
-         left: 0,
+         left: 30,
          top: top,
          fill: colors[color],
          width: 30,
@@ -62,7 +62,7 @@ function makeBall() {
          angle: 0,
          leftMove: Number(ballTypes[type].left_move),
          topMove:  Number(ballTypes[type].top_move)
-     }    
+     }
      // makeEvent(color+1, ballTypes[type].id, top, 0)
      return ball
  }
