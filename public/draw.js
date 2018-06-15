@@ -1,7 +1,7 @@
 const framesPerSecond = 20;
 var canvy;
 var rain;
-var raining = false;
+var color;
 var playing = false;
 var rainDrops = [];
 ///////////////////////////////////////////////////////////////////
@@ -10,14 +10,27 @@ var rainDrops = [];
 window.onload = function () {
   canvy = document.getElementById('canvas')
   canvyContext = canvy.getContext('2d')
-  var button = document.getElementById('rain')
 
-  button.addEventListener("click", (evt) => {
-    console.log('clicked')
+  var button = document.getElementById('rain')
+  button.addEventListener("mousedown", (evt) => {
     startRainDrop()
-    if (button.innerHTML == 'Rain') {
-          button.innerHTML = 'Stop'
-    } else button.innerHTML = 'Rain'
+    // if (button.innerHTML == 'Rain') {
+    //       button.innerHTML = 'Stop'
+    // } else button.innerHTML = 'Rain'
+  })
+  button.addEventListener("mouseup", (evt) => {
+    stopRainDrops()
+    // if (button.innerHTML == 'Rain') {
+    //       button.innerHTML = 'Stop'
+    // } else button.innerHTML = 'Rain'
+  })
+
+  var moodButton = document.getElementById('mood')
+  moodButton.addEventListener("click", (evt) => {
+    getColor()
+      .then((newColor) => {
+        color = newColor;
+      })
   })
 
   var audioButton = document.getElementById('play')
@@ -49,7 +62,7 @@ window.onload = function () {
 function start() {
   setInterval(()  => {
     clearCanvas()
-    // drawBackground()
+    if (color) drawBackground()
     drawRaindrops()
   }, 1000/30)
 }
@@ -57,6 +70,12 @@ function start() {
 function clearCanvas () {
   drawRect({
     left: 0, top: 0, fill: 'white', width: 800, height: 800
+  })
+}
+
+function drawBackground () {
+  drawRect({
+    left: 0, top: 0, fill: color, width: 800, height: 800
   })
 }
 
@@ -71,21 +90,17 @@ function drawRect (rect) {
   canvyContext.fillRect(rect.left, rect.top, rect.width, rect.height)
 }
 
-
-
 function startRainDrop () {
-  if (!raining) {
-      rain = setInterval(() => {
-        console.log('raining')
-      raining = true;
-      getRainDrop()
-    }, 1000/30)
-  }
-  else stopRainDrops()
+  rain = setInterval(() => {
+    getRainDrop()
+  }, 1000/30)
 }
 
 function stopRainDrops () {
   clearInterval(rain)
-  raining = false;
+}
+
+function clearRainDrops () {
+  clearInterval(rain)
   rainDrops = [];
 }
