@@ -4,6 +4,7 @@ var rain;
 var color;
 var playing = false;
 var rainDrops = [];
+var balls = [];
 ///////////////////////////////////////////////////////////////////
 
 
@@ -31,6 +32,12 @@ window.onload = function () {
       .then((newColor) => {
         color = newColor;
       })
+  })
+
+  var ballButton = document.getElementById('balls')
+  ballButton.addEventListener("click", (evt) => {
+    getBall()
+    console.log(balls)
   })
 
   var audioButton = document.getElementById('play')
