@@ -2,9 +2,8 @@ const framesPerSecond = 20;
 var canvy;
 var rain;
 var raining = false;
-var rainDrops = [
-  {left: 100, top: 0, fill: 'teal', width: 2, height: 6}
-];
+var playing = false;
+var rainDrops = [];
 ///////////////////////////////////////////////////////////////////
 
 
@@ -12,6 +11,7 @@ window.onload = function () {
   canvy = document.getElementById('canvas')
   canvyContext = canvy.getContext('2d')
   var button = document.getElementById('rain')
+
   button.addEventListener("click", (evt) => {
     console.log('clicked')
     startRainDrop()
@@ -19,6 +19,29 @@ window.onload = function () {
           button.innerHTML = 'Stop'
     } else button.innerHTML = 'Rain'
   })
+
+  var audioButton = document.getElementById('play')
+  audioButton.addEventListener("click", (evt) => {
+    console.log('clicked')
+    if (playing == false) {
+        playAudio()
+        playing = true
+    } else {
+      pauseAudio()
+      playing = false
+    }
+    if (audioButton.innerHTML == 'Play') {
+          audioButton.innerHTML = 'Stop'
+    } else audioButton.innerHTML = 'Play'
+  })
+
+  var audio = document.getElementById("myAudio");
+  function playAudio() {
+    audio.play();
+  }
+  function pauseAudio() {
+    audio.pause();
+  }
 
   start()
 }
@@ -59,4 +82,5 @@ function startRainDrop () {
 function stopRainDrops () {
   clearInterval(rain)
   raining = false;
+  rainDrops = [];
 }
