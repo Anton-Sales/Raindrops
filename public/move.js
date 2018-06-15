@@ -13,6 +13,7 @@ function getRainDrop() {
 
 let move = setInterval(() => {
   rainDropMove()
+  ballMove()
 },50)
 
 function rainDropMove () {
@@ -41,6 +42,6 @@ function ballMove () {
     if (ball.left < 0 || ball.left > 800) ball.leftMove *= -1
     ball.top += ball.topMove
     ball.left += ball.leftMove
-    
+
   })
 }

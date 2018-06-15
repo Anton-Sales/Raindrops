@@ -37,7 +37,6 @@ window.onload = function () {
   var ballButton = document.getElementById('balls')
   ballButton.addEventListener("click", (evt) => {
     getBall()
-    console.log(balls)
   })
 
   var audioButton = document.getElementById('play')
@@ -70,6 +69,7 @@ function start() {
   setInterval(()  => {
     clearCanvas()
     if (color) drawBackground()
+    drawBalls()
     drawRaindrops()
   }, 1000/30)
 }
@@ -86,6 +86,12 @@ function drawBackground () {
   })
 }
 
+function drawBalls () {
+  for (var i = 0; i < balls.length; i++) {
+    drawRect(balls[i])
+  }
+}
+
 function drawRaindrops () {
   for (var i = 0; i < rainDrops.length; i++) {
     drawRect(rainDrops[i])
@@ -96,6 +102,14 @@ function drawRect (rect) {
   canvyContext.fillStyle = rect.fill
   canvyContext.fillRect(rect.left, rect.top, rect.width, rect.height)
 }
+
+// function drawCircle (circle) {
+//   console.log(circle)
+//   canvyContext.fillStyle = circle.color;
+//   canvyContext.beginPath();
+//   canvyContext.arc(circle.left, circle.top, circle.height/3, 0, Math.PI*2, true);
+//   canvyContext.fill();
+// }
 
 function startRainDrop () {
   rain = setInterval(() => {
