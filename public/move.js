@@ -23,3 +23,24 @@ function rainDropMove () {
     }
   })
 }
+
+function getBall() {
+  $.ajax({
+      url:'/api',
+      type:'post',
+      data:{name: 'ball'},
+      success:function(res){
+          balls.push(res)
+    }
+  })
+}
+
+function ballMove () {
+  balls.forEach(ball => {
+    if (ball.top < 0 || ball.top > 800) ball.topMove *= -1
+    if (ball.left < 0 || ball.left > 800) ball.leftMove *= -1
+    ball.top += ball.topMove
+    ball.left += ball.leftMove
+    
+  })
+}
