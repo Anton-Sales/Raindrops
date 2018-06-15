@@ -38,10 +38,21 @@ function getBall() {
 
 function ballMove () {
   balls.forEach(ball => {
-    if (ball.top < 0 || ball.top > 800) ball.topMove *= -1
-    if (ball.left < 0 || ball.left > 800) ball.leftMove *= -1
+    if (ball.top < 0 || ball.top > 770) ball.topMove *= -1
+    if (ball.left < 0 || ball.left > 770) ball.leftMove *= -1
     ball.top += ball.topMove
     ball.left += ball.leftMove
 
   })
+}
+
+function getColor() {
+  $.ajax({
+    url:'/api',
+    type:'post',
+    data:{name: 'color'},
+    success:function(res){
+        
+  }
+})
 }

@@ -76,6 +76,9 @@ function proccessRequest(name){
     case 'ball':
         obj = makeBall()
         break
+        case 'color':
+        obj = getColor()
+        break
   }
   return obj
 }
@@ -95,6 +98,11 @@ function makeEvent(color_id, type_id, top, left){
 
   })
 
+}
+
+function getColor() {
+    let color = colors[Math.floor(Math.random()*colors.length)]
+    return color
 }
 
 module.exports ={
