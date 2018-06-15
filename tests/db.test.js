@@ -10,10 +10,10 @@ beforeEach(() => {
 
 afterEach(() => testEnv.cleanup(testDb))
 
-test('getUsers gets all users', () => {
+test('getColors gets colors', () => {
   // One for each letter of the alphabet!
-  const expected = 26
-  return db.getUsers(testDb)
+  const expected = 8
+  return db.getColors(testDb)
     .then(users => {
       const actual = users.length
       expect(actual).toBe(expected)
@@ -21,12 +21,21 @@ test('getUsers gets all users', () => {
     .catch(err => expect(err).toBeNull())
 })
 
-test('getUser gets a single user', () => {
-  const expected = 'Ambitious Aardvark'
-  return db.getUser(99901, testDb)
-    .then(user => {
-      const actual = user.name
+test('getTypeVisual gets the raindrops', () => {
+  const expected = 4
+  return db.getTypeVisual('raindrop', testDb)
+    .then(users => {
+      const actual = users.length
       expect(actual).toBe(expected)
     })
     .catch(err => expect(err).toBeNull())
 })
+// test('getUser gets a single user', () => {
+//   const expected = 'Ambitious Aardvark'
+//   return db.getUser(99901, testDb)
+//     .then(user => {
+//       const actual = user.name
+//       expect(actual).toBe(expected)
+//     })
+//     .catch(err => expect(err).toBeNull())
+// })
