@@ -1,35 +1,55 @@
 <head>
   <script
-    src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-    crossorigin="anonymous">
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
   </script>
   <link type="text/css" rel="stylesheet" href="main.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.22/fabric.min.js"></script>
   <script type="text/javascript" src="draw.js"></script>
   <script type="text/javascript" src="move.js"></script>
   <!-- <script>
-    document.onload = function () {
-      var canvas = new fabric.Canvas('canvas')
+  document.onload = function () {
+  var canvas = new fabric.Canvas('canvas')
 
-      var rect1 = new fabric.Rect({
-        left: 100,
-        top: 100,
-        fill: 'blue',
-        width: 100,
-        height: 100
-      })
-      setInterval(() =>{
-        canvas.add(rect1)
-      }, 1000/30)
-    }
+  var rect1 = new fabric.Rect({
+  left: 100,
+  top: 100,
+  fill: 'blue',
+  width: 100,
+  height: 100
+})
+setInterval(() =>{
+canvas.add(rect1)
+}, 1000/30)
+}
 
-  </script> -->
+</script> -->
 </head>
 
 
 
 <body>
-  <canvas id="canvas" width="800" height="800"></canvas>
+  <div class="container">
+    <div class="row first">
+      <div class="one columns">
+
+
+      </div>
+      <div class="ten columns">
+        <canvas id="canvas" width="800" height="800"></canvas>
+      </div>
+      <div class="one columns">
+        <!-- <button id="btn" type="button" name="button">Rain</button> -->
+        <button id="btn" class="btn btn--stripe">Rain</button>
+      </div>
+
+    </div>
+
+  </div>
+
+
 
 </body>

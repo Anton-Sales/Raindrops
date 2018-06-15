@@ -9,10 +9,13 @@ var rainDrops = [
 window.onload = function () {
   canvy = document.getElementById('canvas')
   canvyContext = canvy.getContext('2d')
+  var button = document.getElementById('btn')
+  button.addEventListener("click", (evt) => {
+    console.log('clicked')
+    startRainDrop()
+  })
+
   start()
-  setInterval(() => {
-    getRainDrop()
-  }, 1000)
 }
 
 function start() {
@@ -34,4 +37,12 @@ function clearCanvas () {
 function drawRect (rect) {
   canvyContext.fillStyle = rect.fill
   canvyContext.fillRect(rect.left, rect.top, rect.width, rect.height)
+}
+
+
+
+function startRainDrop () {
+  setInterval(() => {
+    getRainDrop()
+  }, 1000/30)
 }
