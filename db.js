@@ -4,7 +4,8 @@ const connection = require('knex')(config)
 
 module.exports = {
     getColors,
-    addEvent
+    addEvent,
+    getTypeVisual
 }
 
 function getColors (testConn) {
@@ -16,4 +17,10 @@ function addEvent (userEvent, testConn) {
   const conn = testConn || connection
   return conn('events')
     .insert(userEvent)
+}
+
+function getTypeVisual(type, testConn) {
+  const conn = testConn || connection
+  return conn('type_visual')
+    .where('name', type)
 }

@@ -1,6 +1,8 @@
 let db = require('./db')
 var colors = []
+var raindropTypes = []
 getColors()
+getRaindropTypes()
 
 function getColors(){
     db.getColors().then(data => {
@@ -11,13 +13,21 @@ function getColors(){
     })
 }
 
+function getRaindropTypes(){
+    db.getTypeVisual('raindrop').then(data => {
+        raindropTypes = data 
+        console.log(raindropTypes) 
+    })      
+}
+
 let startTime = "not set"
 
 
 function makeRaindrop() {
    let color = Math.floor(Math.random()*colors.length)
    let left = Math.round(Math.random()*800)
-   let topMove = Math.ceil(Math.random()*4+1)
+   //let topMove = Math.ceil(Math.random()*4+1)
+   let type = Math.floor(Math.random()*raindropTypes.length)
     let raindrop = {
         left: left,
         top: 0,
@@ -26,9 +36,9 @@ function makeRaindrop() {
         height: 6,
         angle: 0,
         leftMove: 0,
-        topMove: topMove
-    }
-    // makeEvent(color+1, 999 + topMove, 0, left)
+        topMove:  Number(raindropTypes[type].top_move)
+    }    
+    // makeEvent(color+1, raindropTypes[type].id, 0, left)
     return raindrop
 }
 
