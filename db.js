@@ -3,7 +3,8 @@ const config = require('./knexfile')[environment]
 const connection = require('knex')(config)
 
 module.exports = {
-    getColors
+    getColors,
+    addEvent
 }
 
 function getColors (testConn) {
@@ -11,4 +12,8 @@ function getColors (testConn) {
   return conn('colors').select()
 }
 
-
+function addEvent (userEvent, testConn) {
+  const conn = testConn || connection
+  return conn('events')
+    .insert(userEvent)
+}

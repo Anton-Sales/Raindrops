@@ -3,9 +3,13 @@ exports.seed = function (knex, Promise) {
     .then(function () {
       return knex('colors').insert([
         {color: 'red'},
-        {color: 'blue'}, 
-        {color: 'green'}, 
-        {color: 'yellow'},         
+        {color: 'blue'},
+        {color: 'green'},
+        {color: 'yellow'},
+        {color: 'orange'},
+        {color: 'purple'},
+        {color: 'pink'},
+        {color: 'grey'},        
       ])
     })
 }
