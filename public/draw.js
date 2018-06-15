@@ -1,5 +1,7 @@
 const framesPerSecond = 20;
 var canvy;
+var rain;
+var raining = false;
 var rainDrops = [
   {left: 100, top: 0, fill: 'teal', width: 2, height: 6}
 ];
@@ -13,6 +15,9 @@ window.onload = function () {
   button.addEventListener("click", (evt) => {
     console.log('clicked')
     startRainDrop()
+    if (button.innerHTML == 'Rain') {
+          button.innerHTML = 'Stop'
+    } else button.innerHTML = 'Rain'
   })
 
   start()
@@ -23,7 +28,6 @@ function start() {
     clearCanvas()
     for (var i = 0; i < rainDrops.length; i++) {
       drawRect(rainDrops[i])
-      rainDrops[i].top++ // until move code
     }
   }, 1000/30)
 }
@@ -42,7 +46,17 @@ function drawRect (rect) {
 
 
 function startRainDrop () {
-  setInterval(() => {
-    getRainDrop()
-  }, 1000/30)
+  if (!raining) {
+      rain = setInterval(() => {
+        console.log('raining')
+      raining = true;
+      getRainDrop()
+    }, 1000/30)
+  }
+  else stopRainDrops()
+}
+
+function stopRainDrops () {
+  clearInterval(rain)
+  raining = false;
 }

@@ -28,7 +28,7 @@ function makeRaindrop() {
         leftMove: 0,
         topMove: topMove
     }
-    makeEvent(color+1, 999 + topMove, 0, left)
+    // makeEvent(color+1, 999 + topMove, 0, left)
     return raindrop
 }
 
