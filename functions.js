@@ -32,9 +32,9 @@ function getBallTypes(){
 
 
 function makeRaindrop() {
-   let color = Math.floor(Math.random()*colors.length)
-   let left = Math.round(Math.random()*800)
-   let type = Math.floor(Math.random()*raindropTypes.length)
+    let color = Math.floor(Math.random()*colors.length)
+    let left = Math.round(Math.random()*800)
+    let type = Math.floor(Math.random()*raindropTypes.length)
     let raindrop = {
         left: left,
         top: 0,
@@ -53,15 +53,20 @@ function makeBall() {
     let color = Math.floor(Math.random()*colors.length)
     let top = Math.round(Math.random()*800)
     let type = Math.floor(Math.random()*ballTypes.length)
+    let topSpeed
+    if (Math.random() > 0.5) {
+        topSpeed = Number(ballTypes[type].top_move)
+    } else topSpeed = -(Number(ballTypes[type].top_move))
+
     let ball = {
-         left: 30,
+         left: 11,
          top: top,
          fill: colors[color],
          width: 20,
          height: 20,
          angle: 0,
          leftMove: Number(ballTypes[type].left_move),
-         topMove:  Number(ballTypes[type].top_move)
+         topMove: topSpeed
      }
      // makeEvent(color+1, ballTypes[type].id, top, 0)
      return ball

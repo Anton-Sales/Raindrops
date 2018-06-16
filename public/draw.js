@@ -38,6 +38,7 @@ window.onload = function () {
   evilButton.addEventListener("click", (evt) => {
     console.log('evil')
     evilMode = !evilMode
+    clearCanvas()
     canvy.classList.toggle('evil')
     $('body').toggleClass('evilbody')
   })
@@ -47,7 +48,7 @@ window.onload = function () {
     getBall()
   })
 
-  var audioButton = document.getElementById('play')
+  var audioButton = document.getElementById('rainy')
   audioButton.addEventListener("click", (evt) => {
     console.log('clicked')
     if (playing == false) {
@@ -84,9 +85,6 @@ function start() {
 }
 
 function clearCanvas () {
-  // drawRect({
-  //   left: 0, top: 0, fill: 'white', width: 800, height: 800
-  // })
   canvyContext.clearRect(0, 0, 800, 800)
 }
 
@@ -98,7 +96,7 @@ function drawBackground () {
 
 function drawBalls () {
   for (var i = 0; i < balls.length; i++) {
-    drawRect(balls[i])
+    drawCircle(balls[i])
   }
 }
 
@@ -113,13 +111,12 @@ function drawRect (rect) {
   canvyContext.fillRect(rect.left, rect.top, rect.width, rect.height)
 }
 
-// function drawCircle (circle) {
-//   console.log(circle)
-//   canvyContext.fillStyle = circle.color;
-//   canvyContext.beginPath();
-//   canvyContext.arc(circle.left, circle.top, circle.height/3, 0, Math.PI*2, true);
-//   canvyContext.fill();
-// }
+function drawCircle (circle) {
+  canvyContext.fillStyle = circle.fill;
+  canvyContext.beginPath();
+  canvyContext.arc(circle.left, circle.top, circle.height/3, 0, Math.PI*2, true);
+  canvyContext.fill();
+}
 
 function startRainDrop () {
   rain = setInterval(() => {

@@ -9,7 +9,17 @@ exports.seed = function (knex, Promise) {
         {color: 'orange'},
         {color: 'purple'},
         {color: 'pink'},
-        {color: 'grey'},        
+        {color: 'darkblue'},
+        {color: 'aqua'},  
+        {color: 'darkorchid'},  
+        {color: 'darkslateblue'},  
+        {color: 'indigo'},  
+        {color: 'greenyellow'},        
+        {color: 'mediumseagreen'},  
+        {color: 'firebrick'},
+        {color: 'lightseagreen'},  
+        {color: 'midnightblue'},  
+        {color: 'springgreen'}
       ])
     })
 }

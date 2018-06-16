@@ -38,11 +38,10 @@ function getBall() {
 
 function ballMove () {
   balls.forEach(ball => {
-    if (ball.top < 0 || ball.top > 780) ball.topMove *= -1
-    if (ball.left < 0 || ball.left > 780) ball.leftMove *= -1
+    if (ball.top < (0+(ball.height/3)) || ball.top > (800-(ball.height/3))) ball.topMove *= -1
+    if (ball.left < (0+(ball.height/3)) || ball.left > (800-(ball.height/3))) ball.leftMove *= -1
     ball.top += ball.topMove
     ball.left += ball.leftMove
-
   })
 }
 

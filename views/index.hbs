@@ -10,23 +10,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.22/fabric.min.js"></script>
   <script type="text/javascript" src="draw.js"></script>
   <script type="text/javascript" src="move.js"></script>
-  <!-- <script>
-  document.onload = function () {
-  var canvas = new fabric.Canvas('canvas')
-
-  var rect1 = new fabric.Rect({
-  left: 100,
-  top: 100,
-  fill: 'blue',
-  width: 100,
-  height: 100
-})
-setInterval(() =>{
-canvas.add(rect1)
-}, 1000/30)
-}
-
-</script> -->
 </head>
 
 
@@ -47,7 +30,7 @@ canvas.add(rect1)
         <button id="mood" class="btn btn--stripe">Mood</button>
         <button id="balls" class="btn btn--stripe">Balls</button>
         <br><br>
-        <button id="play" class="btn btn--stripe btn--radius">Play</button>
+        <button id="rainy" class="btn btn--stripe btn--radius">Rainy</button>
         <button id="evil" class="btn btn--stripe btn--radius">Evil</button>
       </div>
 
@@ -55,6 +38,9 @@ canvas.add(rect1)
 
     <audio id="myAudio">
       <source src="rainymood.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="myJazzAudio">
+      <source src="soul.mp3" type="audio/mpeg">
     </audio>
 
   </div>
