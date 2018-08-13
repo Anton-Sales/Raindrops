@@ -23,7 +23,7 @@ function rainDropMove () {
       raindrop.top += raindrop.topMove
     }
   })
-}
+} 
 
 function getBall() {
   $.ajax({
