@@ -26,7 +26,7 @@ window.onload = function () {
     //       button.innerHTML = 'Stop'
     // } else button.innerHTML = 'Rain'
   })
-
+ 
   var moodButton = document.getElementById('mood')
   moodButton.addEventListener("click", (evt) => {
     getColor(newColor => {
