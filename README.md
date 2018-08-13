@@ -1,24 +1,7 @@
-# Boilerplate: Knex.js
+# Celebrity Quiz
 
-Phase 1 boilerplate project with:
+## Demo Video
 
- - Express
- - Knex
- - SQLite3
- - Express Handlebars
- - body-parser
- - Jest
- - nodemon
+[![Raindrop](https://i.ytimg.com/vi/70rLw64OGVA/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDYuANOG4KVUXEPajzE7DqhK-WjMA)](https://youtu.be/70rLw64OGVA)
 
-
-## Install
-
-```
-yarn
-yarn knex migrate:latest
-yarn knex seed:run
-yarn dev
-```
-
-Be sure to check out the other npm scripts too.
-
+This is a demo video of our group project <strong>raindrops</strong>. Audio is working but not picked up by zoom.
